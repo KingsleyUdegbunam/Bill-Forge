@@ -1,6 +1,6 @@
-const invoices = [
+export const invoices = [
   {
-    id: "#RT3080",
+    id: "RT3080",
     clientName: "Jensen Huang",
     clientEmail: "jensen.huang@mail.com",
     streetAddress: "12 Maple Street",
@@ -19,7 +19,7 @@ const invoices = [
     total: 180090,
   },
   {
-    id: "#XM9141",
+    id: "XM9141",
     clientName: "Alex Grim",
     clientEmail: "alexgrim@mail.com",
     streetAddress: "84 Church Way",
@@ -38,7 +38,7 @@ const invoices = [
     total: 55600,
   },
   {
-    id: "#RG0314",
+    id: "RG0314",
     clientName: "John Morrison",
     clientEmail: "jmorrison@mail.com",
     streetAddress: "79 Dover Road",
@@ -58,7 +58,7 @@ const invoices = [
     total: 1400233,
   },
   {
-    id: "#RT2080",
+    id: "RT2080",
     clientName: "Alysa Werner",
     clientEmail: "alysawerner@mail.com",
     streetAddress: "63 Warwick Lane",
@@ -77,7 +77,7 @@ const invoices = [
     total: 10204,
   },
   {
-    id: "#AA1449",
+    id: "AA1449",
     clientName: "Mellisa Clarke",
     clientEmail: "mellisa.clarke@mail.com",
     streetAddress: "46 Abbey Road",
@@ -96,7 +96,7 @@ const invoices = [
     total: 403233,
   },
   {
-    id: "#Y9141",
+    id: "Y9141",
     clientName: "Thomas Wayne",
     clientEmail: "t.wayne@mail.com",
     streetAddress: "101 Gotham Place",
@@ -115,7 +115,7 @@ const invoices = [
     total: 615591,
   },
   {
-    id: "#FV2353",
+    id: "FV2353",
     clientName: "Anita Wainwright",
     clientEmail: "anita.w@mail.com",
     streetAddress: "22 Queen Street",
@@ -134,7 +134,7 @@ const invoices = [
     total: 310204,
   },
   {
-    id: "#BK4421",
+    id: "BK4421",
     clientName: "David Okafor",
     clientEmail: "david.okafor@mail.com",
     streetAddress: "5 High Street",
@@ -153,7 +153,7 @@ const invoices = [
     total: 87550,
   },
   {
-    id: "#PL7762",
+    id: "PL7762",
     clientName: "Rachel Stone",
     clientEmail: "rstone@mail.com",
     streetAddress: "38 King's Avenue",
@@ -172,7 +172,7 @@ const invoices = [
     total: 234000,
   },
   {
-    id: "#NW8830",
+    id: "NW8830",
     clientName: "Omar Faris",
     clientEmail: "omar.faris@mail.com",
     streetAddress: "14 Crescent Road",

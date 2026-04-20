@@ -4,8 +4,10 @@
 
 :root {
   font-family: "League Spartan", sans-serif;
+  background-color: var(--BGG-LIGHT);
   --ACCENT-CLR: #7c5dfa;
   --ACCENT-BG-II: #373b53;
+  --DUE-NAME-CLR: #858bb2;
 
   --HEADER-BORDER-CLR: #494e6e;
 
@@ -16,9 +18,21 @@
   --TERTIARY-TXT-CLR: #888eb0;
 
   --BG-DARK: #1e2139;
+  --BGG-LIGHT: #f8f8fb;
   --DELETE-BTN-BG: #ec5757;
 
   --H-L-FONT-SIZE: 36px;
   --H-M-FONT-SIZE: 24px;
   --H-S-FONT-SIZE: 15px;
+
+  --STATUS-DRAFT-BG: rgba(55, 59, 83, 0.0571);
+  --STATUS-PENDING-BG: rgba(255, 145, 0, 0.0571);
+  --STATUS-COMPLETED-BG: rgba(51, 214, 160, 0.0571);
+
+  --STATUS-DRAFT-CLR: #373b53;
+  --STATUS-PENDING-CLR: #ff8f00;
+  --STATUS-COMPLETED-CLR: #33d69f;
+
+  --BOX-SHADOW-CLR: #48549f1a;
+  --BODY-TXT-SIZE: 13px;
 }
