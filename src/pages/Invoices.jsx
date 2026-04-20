@@ -1,7 +1,7 @@
 import "./Invoices.css";
 import { IoMdAddCircle } from "react-icons/io";
-import { formatPenceToPounds } from "./utils/money";
-import { invoices } from "./data/data";
+import { formatPenceToPounds } from "../utils/money";
+import { invoices } from "../data/data";
 import dayjs from "dayjs";
 
 export default function Invoices() {
