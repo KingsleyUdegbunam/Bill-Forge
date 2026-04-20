@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 
 :root {
+  font-family: "League Spartan", sans-serif;
   --ACCENT-CLR: #7c5dfa;
   --ACCENT-BG-II: #373b53;
 
@@ -16,4 +17,8 @@
 
   --BG-DARK: #1e2139;
   --DELETE-BTN-BG: #ec5757;
+
+  --H-L-FONT-SIZE: 36px;
+  --H-M-FONT-SIZE: 24px;
+  --H-S-FONT-SIZE: 15px;
 }
