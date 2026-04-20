@@ -1,0 +1,17 @@
+/* Style Library */
+/* COLORS    */
+:root {
+  --ACCENT-CLR: #7c5dfa;
+  --ACCENT-BG-II: #373b53;
+
+  --HEADER-BORDER-CLR: #494e6e;
+
+  --BG-LIGHT: #dfe3fa;
+
+  --PRIMARY-TXT-CLR: #0c0e16;
+  --SECONDARY-TXT-CLR: #7e88c3;
+  --TERTIARY-TXT-CLR: #888eb0;
+
+  --BG-DARK: #1e2139;
+  --DELETE-BTN-BG: #ec5757;
+}

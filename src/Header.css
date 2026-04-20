@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--ACCENT-BG-II);
+}
+
+.header-right {
+  display: flex;
+}
+
+.pfp-container {
+  padding: 1.25rem 1.5rem;
+  border-inline-start: 1px solid var(--HEADER-BORDER-CLR);
+}
+
+.theme-btn {
+  padding: 1.25rem 1.5rem;
+  align-self: center;
+}
+
+.header-right .profile-image {
+  width: 32px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
