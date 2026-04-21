@@ -119,3 +119,57 @@
   color: var(--ACCENT-CLR);
   display: none;
 }
+
+@media (min-width: 768px) {
+  .main-wrapper {
+    /* background-color: red; */
+    padding: 3.8rem 3rem;
+  }
+
+  .invoice-cards-container {
+    padding-block: 3.4rem;
+  }
+
+  .invoice-card {
+    display: grid;
+    grid-template-columns: 6rem 8rem 1fr 8rem 9rem auto;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  /* reset mobile-only styles */
+  .invoice-id-and-name,
+  .due-date-cost-status,
+  .invoice-due-date-cost {
+    display: contents;
+  }
+
+  .invoice-id {
+    order: 1;
+  }
+  .due-date {
+    order: 2;
+    text-align: center;
+  }
+  .invoice-name {
+    order: 3;
+    text-align: center;
+  }
+  .invoice-total {
+    order: 4;
+    text-align: center;
+  }
+  .invoice-status {
+    order: 5;
+    justify-self: center;
+  }
+
+  .invoice-card-chevron {
+    order: 6;
+  }
+
+  .invoice-card-chevron {
+    display: inline-block;
+    font-size: 0.5rem;
+  }
+}
