@@ -102,3 +102,9 @@
 .due-date {
   color: var(--SECONDARY-TXT-CLR);
 }
+
+.invoice-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+}

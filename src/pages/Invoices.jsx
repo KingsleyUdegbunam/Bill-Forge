@@ -15,15 +15,17 @@ export default function Invoices({ invoicesData }) {
             <h2 className="invoices-h2">Invoices</h2>
             <p className="invoices-subtext">{invoicesData.length} invoices</p>
           </div>
-          <div className="invoices-filter">
-            <p className="fiter">Filter</p>
-          </div>
-          <Link to={"/invoice/create"} className="invoices-add-btn">
-            <div className="button-icon">
-              <IoMdAddCircle className="add-icon" />
+          <div className="invoice-header-right">
+            <div className="invoices-filter">
+              <p className="fiter">Filter</p>
             </div>
-            <p className="new">New</p>
-          </Link>
+            <Link to={"/invoice/create"} className="invoices-add-btn">
+              <div className="button-icon">
+                <IoMdAddCircle className="add-icon" />
+              </div>
+              <p className="new">New</p>
+            </Link>
+          </div>
         </div>
 
         <section className="invoice-cards-container">
@@ -42,6 +44,7 @@ export default function Invoices({ invoicesData }) {
                     </p>
                     <p className="invoice-name">{invoice.clientName}</p>
                   </div>
+
                   <div className="due-date-cost-status">
                     <div className="invoice-due-date-cost">
                       <p className="due-date">
