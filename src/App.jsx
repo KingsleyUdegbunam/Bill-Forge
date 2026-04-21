@@ -5,6 +5,7 @@ import Invoices from "./pages/Invoices";
 import { invoices } from "./data/data";
 import { InvoiceDetails } from "./pages/InvoiceDetails";
 import InvoiceEdit from "./pages/InvoiceEdit";
+import InvoiceCreate from "./pages/InvoiceCreate";
 
 import "./App.css";
 function App() {
@@ -31,6 +32,15 @@ function App() {
             />
           }
           path="/invoice/:id/edit"
+        />
+        <Route
+          path="/invoice/create"
+          element={
+            <InvoiceCreate
+              invoicesData={invoicesData}
+              setInvoicesData={setInvoicesData}
+            />
+          }
         />
       </Routes>
     </>
