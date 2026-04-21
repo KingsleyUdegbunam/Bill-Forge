@@ -5,11 +5,13 @@
   font-size: var(--H-S-FONT-SIZE);
   font-weight: 700;
   letter-spacing: -0.25px;
+  line-height: 15px;
   color: white;
   cursor: pointer;
   text-decoration: none;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .button--primary {
