@@ -150,3 +150,41 @@ html {
   bottom: 0;
   box-shadow: var(--CARD-BOX-SHADOW);
 }
+
+.delete-alert {
+  position: fixed;
+  z-index: 2;
+  background-color: #0c0e1699;
+  display: grid;
+  place-content: center;
+  padding: 1.5rem;
+  inset: 0;
+}
+
+.delete-modal {
+  background-color: white;
+  padding: 34px 32px;
+  border-radius: var(--CARD-BORDER-RADIUS);
+}
+
+.confirm-delete-h2 {
+  font-size: var(--H-M-FONT-SIZE);
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.5px;
+  color: var(--PRIMARY-TXT-CLR);
+}
+
+.action-buttons {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  font: var(--H-S-FONT-SIZE);
+}
+
+.warning-text {
+  margin-block-start: 0.5rem;
+  font-size: var(--BODY-TXT-SIZE);
+  color: var(--TERTIARY-TXT-CLR);
+}

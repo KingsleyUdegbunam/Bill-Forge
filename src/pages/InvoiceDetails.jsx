@@ -123,6 +123,20 @@ export function InvoiceDetails({ invoicesData, setInvoicesData }) {
             />
           </div>
         </div>
+        <section className="delete-alert" style={{ display: "none" }}>
+          <div className="delete-modal">
+            <h2 className="confirm-delete-h2">Confirm Deletion</h2>
+            <p className="warning-text">
+              Are you sure you want to delete invoice #${invoice.id}? This
+              action cannot be undone.
+            </p>
+
+            <div className="action-buttons">
+              <Button children="Cancel" variant="secondary" />
+              <Button children="Delete" variant="delete" />
+            </div>
+          </div>
+        </section>
       </section>
     </>
   );
