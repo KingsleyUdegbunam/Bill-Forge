@@ -4,6 +4,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { formatPenceToPounds } from "../utils/money";
 import { displayDate } from "../utils/date";
 import { invoices } from "../data/data";
+import { Link } from "react-router-dom";
 
 export default function Invoices() {
   return (
@@ -28,29 +29,35 @@ export default function Invoices() {
         <section className="invoice-cards-container">
           {invoices.map((invoice) => {
             return (
-              <article className="invoice-card">
-                <div className="invoice-id-and-name">
-                  <p className="invoice-id">
-                    <span className="hash-sign">#</span>
-                    {invoice.id}
-                  </p>
-                  <p className="invoice-name">{invoice.clientName}</p>
-                </div>
-                <div className="due-date-cost-status">
-                  <div className="invoice-due-date-cost">
-                    <p className="due-date">
-                      <span className="invoice-due-txt">Due</span>{" "}
-                      {displayDate(invoice.dueDate)}
+              <Link
+                to={`/invoice/${invoice.id}`}
+                key={invoice.id}
+                className="invoice-card-link"
+              >
+                <article className="invoice-card">
+                  <div className="invoice-id-and-name">
+                    <p className="invoice-id">
+                      <span className="hash-sign">#</span>
+                      {invoice.id}
                     </p>
-                    <p className="invoice-total">
-                      {formatPenceToPounds(invoice.total)}
-                    </p>
+                    <p className="invoice-name">{invoice.clientName}</p>
                   </div>
-                  <div className="invoice-status">
-                    {<StatusBadge status={invoice.status} />}
+                  <div className="due-date-cost-status">
+                    <div className="invoice-due-date-cost">
+                      <p className="due-date">
+                        <span className="invoice-due-txt">Due</span>{" "}
+                        {displayDate(invoice.dueDate)}
+                      </p>
+                      <p className="invoice-total">
+                        {formatPenceToPounds(invoice.total)}
+                      </p>
+                    </div>
+                    <div className="invoice-status">
+                      {<StatusBadge status={invoice.status} />}
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             );
           })}
         </section>

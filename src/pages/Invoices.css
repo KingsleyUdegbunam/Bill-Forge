@@ -59,6 +59,11 @@
   gap: 1rem;
 }
 
+.invoice-card-link {
+  text-decoration: none;
+  color: initial;
+}
+
 .invoice-card {
   padding: 1.5rem;
   font-size: var(--BODY-TXT-SIZE);
