@@ -1,0 +1,152 @@
+html {
+  position: relative;
+}
+
+.status-text {
+  font-size: var(--BODY-TXT-SIZE);
+  line-height: 15px;
+  color: var(--DUE-NAME-CLR);
+  letter-spacing: -0.1px;
+  font-weight: 500;
+}
+
+.invoice-details-wrapper {
+  padding-block-end: 9rem;
+}
+
+.status-display-card {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: var(--CARD-BORDER-RADIUS);
+  box-shadow: var(--CARD-BOX-SHADOW);
+}
+
+.invoice-details-display {
+  background-color: white;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--CARD-BORDER-RADIUS);
+  box-shadow: var(--CARD-BOX-SHADOW);
+}
+.invoice-detail-body-container {
+  padding-block: 31px 38px;
+}
+
+.invoice-details-header {
+  margin-block-end: 13px;
+}
+
+.address-details {
+  margin-block-start: 13px;
+}
+
+.bill-from {
+  margin-block-start: 2rem;
+}
+
+.invoice-details-header,
+.address-details,
+.project-desc {
+  font-size: var(--BODY-TXT-SIZE);
+  color: var(--SECONDARY-TXT-CLR);
+  font-weight: 500;
+}
+
+.left-details {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.invoice-details-content,
+.item-name {
+  font-size: var(--H-S-FONT-SIZE);
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.25px;
+}
+
+.project-desc {
+  margin-top: 0.25rem;
+}
+
+.invoice-date-address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 32px;
+}
+
+.invoice-details-mail {
+  margin-block-end: 38px;
+}
+
+.invoice-detail-price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block-start: 1.5rem;
+  background-color: var(--DETAILS-COST-BG);
+  border-radius: var(--CARD-BORDER-RADIUS);
+}
+
+.invoice-item-cost,
+.invoice-grand-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.5rem;
+}
+
+.invoice-item-cost {
+  font-size: var(--H-S-FONT-SIZE);
+  color: var(--PRIMARY-TXT-CLR);
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.invoice-item-cost .item-quantity-price {
+  color: var(--SECONDARY-TXT-CLR);
+}
+
+.invoice-grand-total {
+  color: white;
+  background-color: var(--STATUS-DRAFT-CLR);
+  padding-block: 1.5rem;
+  border-radius: 0 0 var(--CARD-BORDER-RADIUS) var(--CARD-BORDER-RADIUS);
+}
+
+.grand-total-txt {
+  font-size: var(--BODY-TXT-SIZE);
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+
+.grand-total-figure {
+  font-size: var(--H-M-FONT-SIZE);
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.action-btns {
+  background-color: white;
+  padding: 21px 1.5rem;
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 0.5fr 0.6fr 1fr;
+  gap: 0.5rem;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: var(--CARD-BOX-SHADOW);
+}
