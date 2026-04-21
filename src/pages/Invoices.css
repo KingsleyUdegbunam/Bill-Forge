@@ -1,4 +1,4 @@
-.invoices-main {
+.main-wrapper {
   padding: 2rem 1.5rem;
   padding-block-end: 6.6rem;
 }
@@ -86,25 +86,6 @@
 .invoice-name,
 .ivoice-due-txt {
   color: var(--DUE-NAME-CLR);
-}
-
-.invoice-status {
-  text-transform: capitalize;
-  padding: 14px 30px;
-  border-radius: 6px;
-  font-weight: 700;
-  color: var();
-  background-color: var(--STATUS-COMPLETED-BG);
-  color: var(--STATUS-COMPLETED-CLR);
-}
-.status-text::before {
-  display: inline-block;
-  margin-inline-end: 0.5rem;
-  border-radius: 50%;
-  content: " ";
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--STATUS-COMPLETED-CLR);
 }
 
 .invoice-id-and-name {

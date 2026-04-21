@@ -1,13 +1,14 @@
+import { StatusBadge } from "../components/ui/StatusBagde";
 import "./Invoices.css";
 import { IoMdAddCircle } from "react-icons/io";
 import { formatPenceToPounds } from "../utils/money";
+import { displayDate } from "../utils/date";
 import { invoices } from "../data/data";
-import dayjs from "dayjs";
 
 export default function Invoices() {
   return (
     <>
-      <section className="invoices-main">
+      <section className="main-wrapper">
         <div className="invoices-header">
           <div className="left">
             <h2 className="invoices-h2">Invoices</h2>
@@ -27,7 +28,7 @@ export default function Invoices() {
         <section className="invoice-cards-container">
           {invoices.map((invoice) => {
             return (
-              <article className="invoice-card" key={invoice.id}>
+              <article className="invoice-card">
                 <div className="invoice-id-and-name">
                   <p className="invoice-id">
                     <span className="hash-sign">#</span>
@@ -39,14 +40,14 @@ export default function Invoices() {
                   <div className="invoice-due-date-cost">
                     <p className="due-date">
                       <span className="invoice-due-txt">Due</span>{" "}
-                      {dayjs(invoice.dueDate).format("DD MMM YYYY")}
+                      {displayDate(invoice.dueDate)}
                     </p>
                     <p className="invoice-total">
                       {formatPenceToPounds(invoice.total)}
                     </p>
                   </div>
                   <div className="invoice-status">
-                    <p className="status-text">{invoice.status}</p>
+                    {<StatusBadge status={invoice.status} />}
                   </div>
                 </div>
               </article>
