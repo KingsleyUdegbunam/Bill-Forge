@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { invoices } from "../data/data";
 import { StatusBadge } from "../components/ui/StatusBagde";
 import { displayDate } from "../utils/date";
 import "./InvoiceDetails.css";
@@ -8,10 +6,9 @@ import { formatPenceToPounds } from "../utils/money";
 import { Button } from "../components/ui/Buttons";
 import { GoBackBtn } from "../components/navigation/GoBackButton";
 
-export function InvoiceDetails() {
-  const [invoicesData, setInvoicesData] = useState(invoices);
+export function InvoiceDetails({ invoicesData, setInvoicesData }) {
   const { id } = useParams();
-  const invoice = invoices.find((invoice) => invoice.id === id);
+  const invoice = invoicesData.find((invoice) => invoice.id === id);
 
   console.log("Found", invoice);
 

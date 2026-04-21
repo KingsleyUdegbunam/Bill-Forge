@@ -6,14 +6,14 @@ import { displayDate } from "../utils/date";
 import { invoices } from "../data/data";
 import { Link } from "react-router-dom";
 
-export default function Invoices() {
+export default function Invoices({ invoicesData }) {
   return (
     <>
       <section className="main-wrapper">
         <div className="invoices-header">
           <div className="left">
             <h2 className="invoices-h2">Invoices</h2>
-            <p className="invoices-subtext">{invoices.length} invoices</p>
+            <p className="invoices-subtext">{invoicesData.length} invoices</p>
           </div>
           <div className="invoices-filter">
             <p className="fiter">Filter</p>
