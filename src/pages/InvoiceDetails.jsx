@@ -116,7 +116,11 @@ export function InvoiceDetails({ invoicesData, setInvoicesData }) {
               variant={"secondary"}
             />
             <Button children={"Delete"} variant={"delete"} />
-            <Button children={"Mark as Paid"} variant={"primary"} />
+            <Button
+              onClick={markAsCompleted}
+              children={"Mark as Paid"}
+              variant={"primary"}
+            />
           </div>
         </div>
       </section>
