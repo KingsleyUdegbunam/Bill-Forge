@@ -12,6 +12,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Web Development",
     status: "paid",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Frontend Build", qty: 1, price: 120000, total: 120000 },
       { name: "UI Design", qty: 3, price: 20030, total: 60090 },
@@ -31,6 +39,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Graphic Design",
     status: "pending",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Banner Design", qty: 1, price: 15600, total: 15600 },
       { name: "Email Design", qty: 2, price: 20000, total: 40000 },
@@ -50,6 +66,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Brand Identity",
     status: "paid",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Logo Design", qty: 1, price: 500000, total: 500000 },
       { name: "Brand Guidelines", qty: 1, price: 400233, total: 400233 },
@@ -70,6 +94,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Content Writing",
     status: "pending",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Blog Articles", qty: 2, price: 4000, total: 8000 },
       { name: "Copyediting", qty: 1, price: 2204, total: 2204 },
@@ -89,6 +121,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Motion Design",
     status: "pending",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Animation Package", qty: 1, price: 250000, total: 250000 },
       { name: "Storyboard", qty: 3, price: 51077, total: 153233 },
@@ -108,6 +148,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Photography",
     status: "pending",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Product Shoot", qty: 1, price: 400000, total: 400000 },
       { name: "Photo Retouching", qty: 7, price: 30800, total: 215591 },
@@ -127,6 +175,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Social Media",
     status: "draft",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Social Strategy", qty: 1, price: 150000, total: 150000 },
       { name: "Post Creation", qty: 8, price: 20025, total: 160204 },
@@ -146,6 +202,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Print Design",
     status: "paid",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Brochure Design", qty: 1, price: 65000, total: 65000 },
       { name: "Business Cards", qty: 1, price: 22550, total: 22550 },
@@ -165,6 +229,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "UX Research",
     status: "overdue",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "User Testing", qty: 2, price: 87000, total: 174000 },
       { name: "Research Report", qty: 1, price: 60000, total: 60000 },
@@ -184,6 +256,14 @@ export const invoices = [
     paymentTerms: "Net 30 Days",
     projectDescription: "Video Editing",
     status: "draft",
+    billFrom: {
+      name: "New Invoice",
+      email: "newinvoice@mail.com",
+      streetAddress: "19 Union Terrace",
+      city: "London",
+      postCode: "E1 3EZ",
+      country: "United Kingdom",
+    },
     items: [
       { name: "Video Edit — 3min", qty: 1, price: 75000, total: 75000 },
       { name: "Colour Grading", qty: 1, price: 24075, total: 24075 },
