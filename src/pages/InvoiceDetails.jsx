@@ -25,8 +25,24 @@ export function InvoiceDetails({ invoicesData, setInvoicesData }) {
       <section className="main-wrapper invoice-details-wrapper">
         <nav>{<GoBackBtn />}</nav>
         <article className="status-display-card">
-          <p className="status-text">Status</p>
-          {<StatusBadge status={invoice.status} />}
+          <div className="status-display-left">
+            <p className="status-text">Status</p>
+            <StatusBadge status={invoice.status} />
+          </div>
+          <div className="invoice-details-action-elems">
+            <Button
+              as={Link}
+              to={`/invoice/${id}/edit`}
+              children={"Edit"}
+              variant={"secondary"}
+            />
+            <Button children={"Delete"} variant={"delete"} />
+            <Button
+              onClick={markAsCompleted}
+              children={"Mark as Paid"}
+              variant={"primary"}
+            />
+          </div>
         </article>
 
         <article className="invoice-details-display">

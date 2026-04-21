@@ -16,12 +16,24 @@ html {
 
 .status-display-card {
   padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: white;
   border-radius: var(--CARD-BORDER-RADIUS);
   box-shadow: var(--CARD-BOX-SHADOW);
+}
+
+.status-display-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.invoice-details-action-elems {
+  display: none;
+  justify-content: flex-end;
+  gap: 0.5rem;
+
+  flex: 1;
 }
 
 .invoice-details-display {
