@@ -1,0 +1,17 @@
+.go-back-btn {
+  margin-block-end: 31px;
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: transparent;
+  border: none;
+
+  font-size: var(--H-S-FONT-SIZE);
+  font-weight: 700;
+  color: var(--PRIMARY-TXT-CLR);
+}
+
+.go-back-svg {
+  color: var(--ACCENT-CLR);
+}
