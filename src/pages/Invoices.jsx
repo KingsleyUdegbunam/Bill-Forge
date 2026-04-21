@@ -18,12 +18,12 @@ export default function Invoices({ invoicesData }) {
           <div className="invoices-filter">
             <p className="fiter">Filter</p>
           </div>
-          <button className="invoices-add-btn">
+          <Link to={"/invoice/create"} className="invoices-add-btn">
             <div className="button-icon">
               <IoMdAddCircle className="add-icon" />
             </div>
             <p className="new">New</p>
-          </button>
+          </Link>
         </div>
 
         <section className="invoice-cards-container">
