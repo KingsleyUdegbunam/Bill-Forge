@@ -114,3 +114,8 @@
   align-items: center;
   gap: 1.125rem;
 }
+
+.invoice-card-chevron {
+  color: var(--ACCENT-CLR);
+  display: none;
+}
