@@ -18,6 +18,7 @@
   --SECONDARY-TXT-CLR: #7e88c3;
   --TERTIARY-TXT-CLR: #888eb0;
 
+  --PALE-HEADER-CLR: #777f98;
   --BG-DARK: #1e2139;
   --BGG-LIGHT: #f8f8fb;
   --WARNING-CLR: #ec5757;
@@ -26,6 +27,7 @@
 
   --H-L-FONT-SIZE: 36px;
   --H-M-FONT-SIZE: 24px;
+  --H-MS-FONT-SIZE: 18px;
   --H-S-FONT-SIZE: 15px;
 
   --STATUS-DRAFT-BG: rgba(55, 59, 83, 0.0571);

@@ -1,0 +1,126 @@
+.form-container {
+  background-color: white;
+}
+
+.header-main {
+  margin-block-end: 1.5rem;
+  font-size: var(--H-M-FONT-SIZE);
+  font-weight: 700;
+}
+
+.detail-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.business-input-fields,
+.city-and-post-code,
+.invoice-payment-info {
+  display: flex;
+
+  gap: 1.5rem;
+}
+
+.business-input-fields,
+.invoice-payment-info {
+  flex-direction: column;
+}
+
+.business-input-fields {
+  margin-top: 1.5rem;
+}
+
+.city-and-post-code {
+  width: 100%;
+}
+
+.city-and-post-code input {
+  width: 100%;
+  min-width: 0;
+}
+
+.city-and-post-code > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.edit-header {
+  color: var(--ACCENT-CLR);
+  font-size: var(--H-S-FONT-SIZE);
+  letter-spacing: -0.25px;
+  font-weight: 700;
+}
+
+.detail-input-container label {
+  color: var(--SECONDARY-TXT-CLR);
+  font-size: var(--BODY-TXT-SIZE);
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 15px;
+  margin-block-end: 0.5rem;
+}
+
+input {
+  font-size: var(--H-S-FONT-SIZE);
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--BG-LIGHT);
+  border-radius: 0.25rem;
+  background-color: transparent;
+}
+
+.client-details,
+.invoice-payment-info {
+  margin-block-start: 2.6rem;
+}
+
+.edit-item-list-container {
+  margin-block-start: 4rem;
+}
+
+.item-list-header {
+  color: var(--PALE-HEADER-CLR);
+  font-size: var(--H-MS-FONT-SIZE);
+  font-weight: 700;
+  letter-spacing: -0.38px;
+  line-height: 32px;
+  margin-block-end: 1.5rem;
+}
+.invoice-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item-set-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.item-set-container > * {
+  min-width: 0;
+}
+
+#items-total {
+  border-color: transparent;
+}
+
+.item-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#add-new-item-btn {
+  width: 100%;
+  margin-block-start: 3rem;
+}
+
+.add-btn-icon {
+  /* background-color: red; */
+  display: flex;
+  stroke-width:;
+  font-size: 15px;
+  line-height: 15px;
+}

@@ -3,8 +3,10 @@ import { useState } from "react";
 import Header from "./Header";
 import Invoices from "./pages/Invoices";
 import { invoices } from "./data/data";
-import "./App.css";
 import { InvoiceDetails } from "./pages/InvoiceDetails";
+import InvoiceEdit from "./pages/InvoiceEdit";
+
+import "./App.css";
 function App() {
   const [invoicesData, setInvoicesData] = useState(invoices);
   return (
@@ -20,6 +22,15 @@ function App() {
               setInvoicesData={setInvoicesData}
             />
           }
+        />
+        <Route
+          element={
+            <InvoiceEdit
+              invoicesData={invoicesData}
+              setInvoicesData={setInvoicesData}
+            />
+          }
+          path="/invoice/:id/edit"
         />
       </Routes>
     </>
