@@ -1,0 +1,44 @@
+.button {
+  padding: 1.125rem 1.5rem;
+  border: none;
+  border-radius: var(--BTN-BORDER-RADIUS);
+  font-size: var(--H-S-FONT-SIZE);
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  display: grid;
+  place-content: center;
+}
+
+.button--primary {
+  background-color: var(--ACCENT-CLR);
+}
+
+.button--primary:hover {
+  background-color: var(--ACCENT-CLR-HOVER);
+}
+
+.button--secondary {
+  background-color: var(--DETAILS-COST-BG);
+  color: var(--SECONDARY-TXT-CLR);
+}
+
+.button--secondary:hover {
+  background-color: var(--BG-LIGHT);
+  color: var(--SECONDARY-TXT-CLR);
+}
+
+.button--delete {
+  background-color: var(--WARNING-CLR);
+}
+
+.button--delete:hover {
+  background-color: var(--WARNING-CLR-HOVER);
+}
+
+.button-draft {
+  background-color: var(--STATUS-DRAFT-CLR);
+  color: var(--TERTIARY-TXT-CLR);
+}
