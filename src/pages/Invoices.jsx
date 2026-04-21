@@ -1,6 +1,7 @@
 import { StatusBadge } from "../components/ui/StatusBagde";
 import "./Invoices.css";
 import { IoMdAddCircle } from "react-icons/io";
+import { FaChevronRight } from "react-icons/fa";
 import { formatPenceToPounds } from "../utils/money";
 import { displayDate } from "../utils/date";
 import { invoices } from "../data/data";
@@ -59,6 +60,7 @@ export default function Invoices({ invoicesData }) {
                       {<StatusBadge status={invoice.status} />}
                     </div>
                   </div>
+                  <FaChevronRight className="invoice-card-chevron" />
                 </article>
               </Link>
             );
