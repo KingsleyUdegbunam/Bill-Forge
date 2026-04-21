@@ -66,6 +66,8 @@
 }
 
 .invoice-card {
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
   font-size: var(--BODY-TXT-SIZE);
   background-color: #ffffff;
@@ -73,10 +75,6 @@
   box-shadow: 0 10px 10px -10px var(--BOX-SHADOW-CLR);
 }
 
-.invoice-card > * {
-  display: flex;
-  justify-content: space-between;
-}
 .invoice-id,
 .invoice-total {
   font-size: var(--H-S-FONT-SIZE);
@@ -96,6 +94,14 @@
 
 .invoice-id-and-name {
   margin-block-end: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.due-date-cost-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hash-sign,
