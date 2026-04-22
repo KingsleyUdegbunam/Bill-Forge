@@ -12,10 +12,16 @@
 .pfp-container {
   padding: 1.25rem 1.5rem;
   border-inline-start: 1px solid var(--HEADER-BORDER-CLR);
+  display: grid;
+  place-items: center;
 }
 
 .theme-btn {
   padding: 1.25rem 1.5rem;
+  align-self: center;
+}
+
+.profile-image {
   align-self: center;
 }
 
@@ -24,4 +30,28 @@
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+  }
+  .header,
+  .header-right {
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 103px;
+    height: 103px;
+  }
+
+  .logo img,
+  .header-right {
+    width: 100%;
+  }
 }
