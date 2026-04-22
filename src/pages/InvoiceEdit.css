@@ -1,5 +1,12 @@
 .form-container {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-container .main-wrapper {
+  padding-block-end: 0;
 }
 
 .header-main {
@@ -97,9 +104,16 @@ input {
   gap: 1.5rem;
 }
 
+.item-flex {
+  margin-block-start: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2rem;
+  align-items: center;
+}
+
 .item-set-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 4.5rem auto auto;
   gap: 1rem;
 }
 
@@ -123,8 +137,97 @@ input {
 }
 
 .add-btn-icon {
-  /* background-color: red; */
   display: flex;
   font-size: 15px;
   line-height: 15px;
+}
+
+#delete-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--TERTIARY-TXT-CLR);
+}
+
+.footer {
+  height: 155px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  background: linear-gradient(#00000000, rgba(0, 0, 0, 0.48));
+}
+
+.edit-footer {
+  position: relative;
+}
+
+.edit-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 21px 24px;
+  gap: 0.5rem;
+  background-color: white;
+  width: 100%;
+  box-shadow: var(--CARD-BOX-SHADOW);
+}
+
+@media (min-width: 768px) {
+  .flexible-row {
+    flex-direction: row;
+  }
+
+  .flexible-row > * {
+    flex: 1;
+  }
+  .city-and-post-code {
+    display: contents;
+  }
+
+  .invoice-issuance-pay-flex > * {
+    flex: 1;
+  }
+
+  .edit-page .go-back-btn {
+    display: none;
+  }
+
+  .item-flex {
+    display: contents;
+  }
+
+  .item-card-input-fields {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 5rem auto auto auto;
+    align-items: center;
+  }
+
+  .item-set-container {
+    display: contents;
+  }
+
+  @media (min-width: 768px) {
+    .edit-footer {
+      /* background: transparent; */
+    }
+
+    .form-container .main-wrapper,
+    .edit-action-buttons {
+      padding: 3.8rem 56px 2rem;
+    }
+
+    .form-container {
+      padding-block-end: 10rem;
+    }
+    .edit-action-buttons {
+      padding-block-start: 2rem;
+      background-color: white;
+    }
+
+    .footer {
+      position: fixed;
+      /* height: fit-content; */
+      /* background-color: yellow; */
+    }
+  }
 }
