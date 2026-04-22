@@ -2,6 +2,7 @@ import { GoBackBtn } from "../components/navigation/GoBackButton";
 import { Button } from "../components/ui/Buttons";
 import "./InvoiceCreate.css";
 import { GrFormAdd } from "react-icons/gr";
+import { MdDelete } from "react-icons/md";
 
 export default function InvoiceCreate() {
   return (
@@ -21,31 +22,33 @@ export default function InvoiceCreate() {
                 id="business-street-address"
               />
             </div>
-            <div className="city-and-post-code">
-              <div className="detail-input-container">
-                <label htmlFor="business-city-address">City</label>
-                <input
-                  type="text"
-                  name="business-city-address"
-                  id="business-city-address"
-                />
+            <div className="flexible-row ">
+              <div className="city-and-post-code">
+                <div className="detail-input-container">
+                  <label htmlFor="business-city-address">City</label>
+                  <input
+                    type="text"
+                    name="business-city-address"
+                    id="business-city-address"
+                  />
+                </div>
+                <div className="detail-input-container">
+                  <label htmlFor="business-post-code">Post Code</label>
+                  <input
+                    type="text"
+                    name="business-post-code"
+                    id="business-post-code"
+                  />
+                </div>
               </div>
               <div className="detail-input-container">
-                <label htmlFor="business-post-code">Post Code</label>
+                <label htmlFor="business-country">Country</label>
                 <input
                   type="text"
-                  name="business-post-code"
-                  id="business-post-code"
+                  name="business-country"
+                  id="business-country"
                 />
               </div>
-            </div>
-            <div className="detail-input-container">
-              <label htmlFor="business-country">Country</label>
-              <input
-                type="text"
-                name="business-country"
-                id="business-country"
-              />
             </div>
           </div>
         </article>
@@ -69,47 +72,51 @@ export default function InvoiceCreate() {
                 id="client-street-address"
               />
             </div>
-            <div className="city-and-post-code">
-              <div className="detail-input-container">
-                <label htmlFor="client-city-address">City</label>
-                <input
-                  type="text"
-                  name="client-city-address"
-                  id="client-city-address"
-                />
+            <div className="flexible-row">
+              <div className="city-and-post-code">
+                <div className="detail-input-container">
+                  <label htmlFor="client-city-address">City</label>
+                  <input
+                    type="text"
+                    name="client-city-address"
+                    id="client-city-address"
+                  />
+                </div>
+                <div className="detail-input-container">
+                  <label htmlFor="client-post-code">Post Code</label>
+                  <input
+                    type="text"
+                    name="client-post-code"
+                    id="client-post-code"
+                  />
+                </div>
               </div>
               <div className="detail-input-container">
-                <label htmlFor="client-post-code">Post Code</label>
-                <input
-                  type="text"
-                  name="client-post-code"
-                  id="client-post-code"
-                />
+                <label htmlFor="client-country">Country</label>
+                <input type="text" name="client-country" id="client-country" />
               </div>
-            </div>
-            <div className="detail-input-container">
-              <label htmlFor="client-country">Country</label>
-              <input type="text" name="client-country" id="client-country" />
             </div>
           </div>
         </article>
         <article className="invoice-payment-info">
-          <div className="detail-input-container">
-            <label htmlFor="invoice-issuance-date">Invoice Date</label>
-            <input
-              type="date"
-              name="invoice-issuance-date"
-              id="invoice-issuance-date"
-            />
-          </div>
-          {/* USE SELECT LIBRARY HERE */}
-          <div className="detail-input-container">
-            <label htmlFor="invoice-issuance-date">Payment Terms</label>
-            <input
-              type="date"
-              name="invoice-issuance-date"
-              id="invoice-issuance-date"
-            />
+          <div className="flexible-row invoice-issuance-pay-flex">
+            <div className="detail-input-container">
+              <label htmlFor="invoice-issuance-date">Invoice Date</label>
+              <input
+                type="date"
+                name="invoice-issuance-date"
+                id="invoice-issuance-date"
+              />
+            </div>
+            {/* USE SELECT LIBRARY HERE */}
+            <div className="detail-input-container">
+              <label htmlFor="invoice-issuance-date">Payment Terms</label>
+              <input
+                type="date"
+                name="invoice-issuance-date"
+                id="invoice-issuance-date"
+              />
+            </div>
           </div>
           <div className="detail-input-container">
             <label htmlFor="project-description">Payment Description</label>
@@ -124,108 +131,98 @@ export default function InvoiceCreate() {
           <p className="item-list-header">Item List</p>
           <div className="item-cards-container">
             <article className="invoice-item-card">
-              <div className="detail-input-container">
-                <label htmlFor="item-name">Item Name</label>
-                <input type="text" name="item-name" id="item-name" />
-              </div>
+              <div className="item-card-input-fields">
+                <div className="detail-input-container">
+                  <label htmlFor="item-name">Item Name</label>
+                  <input type="text" name="item-name" id="item-name" />
+                </div>
 
-              <div className="item-set-container">
-                <div className="detail-input-container">
-                  <label htmlFor="item-quantity">Qty.</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="item-quantity"
-                    id="item-quantity"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="item-price">Price</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="item-price"
-                    id="item-price"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="items-total">Total</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="items-total"
-                    id="items-total"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="items-total">Total</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="items-total"
-                    id="items-total"
-                  />
+                <div className="item-flex">
+                  <div className="item-set-container">
+                    <div className="detail-input-container">
+                      <label htmlFor="item-quantity">Qty.</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="item-quantity"
+                        id="item-quantity"
+                      />
+                    </div>
+                    <div className="detail-input-container">
+                      <label htmlFor="item-price">Price</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="item-price"
+                        id="item-price"
+                      />
+                    </div>
+                    <div className="detail-input-container">
+                      <label htmlFor="items-total">Total</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="items-total"
+                        id="items-total"
+                      />
+                    </div>
+                  </div>
+
+                  <MdDelete id="delete-icon" />
                 </div>
               </div>
             </article>
             <article className="invoice-item-card">
-              <div className="detail-input-container">
-                <label htmlFor="item-name">Item Name</label>
-                <input type="text" name="item-name" id="item-name" />
-              </div>
+              <div className="item-card-input-fields">
+                <div className="detail-input-container">
+                  <label htmlFor="item-name">Item Name</label>
+                  <input type="text" name="item-name" id="item-name" />
+                </div>
 
-              <div className="item-set-container">
-                <div className="detail-input-container">
-                  <label htmlFor="item-quantity">Qty.</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="item-quantity"
-                    id="item-quantity"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="item-price">Price</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="item-price"
-                    id="item-price"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="items-total">Total</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="items-total"
-                    id="items-total"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="items-total">Total</label>
-                  <input
-                    type="number"
-                    min="1"
-                    step="1"
-                    inputMode="numeric"
-                    name="items-total"
-                    id="items-total"
-                  />
+                <div className="item-flex">
+                  <div className="item-set-container">
+                    <div className="detail-input-container">
+                      <label htmlFor="item-quantity">Qty.</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="item-quantity"
+                        id="item-quantity"
+                      />
+                    </div>
+                    <div className="detail-input-container">
+                      <label htmlFor="item-price">Price</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="item-price"
+                        id="item-price"
+                      />
+                    </div>
+                    <div className="detail-input-container">
+                      <label htmlFor="items-total">Total</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        inputMode="numeric"
+                        name="items-total"
+                        id="items-total"
+                      />
+                    </div>
+                  </div>
+
+                  <MdDelete id="delete-icon" />
                 </div>
               </div>
             </article>
@@ -236,6 +233,13 @@ export default function InvoiceCreate() {
           </Button>
         </article>
       </section>
+      <div className="edit-footer footer">
+        <div className="edit-action-buttons">
+          <Button variant="secondary">Discard</Button>
+          <Button variant="draft">Save as Draft</Button>
+          <Button>Save & Send</Button>
+        </div>
+      </div>
     </div>
   );
 }
