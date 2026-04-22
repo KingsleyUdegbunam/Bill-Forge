@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  cursor: pointer;
 }
 
 .button--primary {
@@ -40,7 +41,7 @@
   background-color: var(--WARNING-CLR-HOVER);
 }
 
-.button-draft {
+.button--draft {
   background-color: var(--STATUS-DRAFT-CLR);
   color: var(--TERTIARY-TXT-CLR);
 }
