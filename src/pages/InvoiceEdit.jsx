@@ -246,6 +246,12 @@ export default function InvoiceEdit({ invoicesData, setInvoiceData }) {
           </Button>
         </article>
       </section>
+      <div className="edit-footer footer">
+        <div className="edit-action-buttons">
+          <Button variant="secondary">Cancel</Button>
+          <Button>Save Changes</Button>
+        </div>
+      </div>
     </div>
   );
 }
