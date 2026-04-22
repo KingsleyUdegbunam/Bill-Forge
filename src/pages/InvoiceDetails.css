@@ -90,6 +90,7 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-block-end: 32px;
+  padding-inline-end: 2rem;
 }
 
 .invoice-details-mail {
@@ -163,6 +164,11 @@ html {
   box-shadow: var(--CARD-BOX-SHADOW);
 }
 
+#detais-footer {
+  height: fit-content;
+  display: block;
+}
+
 .delete-alert {
   position: fixed;
   z-index: 2;
@@ -199,4 +205,110 @@ html {
   margin-block-start: 0.5rem;
   font-size: var(--BODY-TXT-SIZE);
   color: var(--TERTIARY-TXT-CLR);
+}
+
+.tablet {
+  display: none;
+}
+
+.price-summmary-tablet {
+  color: var(--SECONDARY-TXT-CLR);
+  font-size: var(--BODY-TXT-SIZE);
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.1px;
+}
+
+.invoice-details-grid-container {
+  display: contents;
+}
+
+@media (min-width: 420px) {
+  .invoice-date-address {
+    padding-inline-end: 72px;
+  }
+}
+
+@media (min-width: 768px) {
+  .status-display-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+  }
+  .invoice-details-action-elems {
+    display: flex;
+  }
+
+  #details-footer {
+    display: none;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .tablet {
+    display: block;
+  }
+
+  .invoice-detail-body-container,
+  .invoice-date-address {
+    display: contents;
+  }
+
+  .invoice-details-display {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    padding: 2rem;
+  }
+
+  .invoice-detail-price-container {
+    margin-block-start: 47px;
+    grid-column: span 4;
+  }
+
+  .bill-from {
+    grid-column: 4;
+    text-align: right;
+  }
+
+  .bill-to {
+    grid-column: 2;
+  }
+
+  .item-quantity,
+  .item-price {
+    text-align: center;
+  }
+
+  .invoice-details-grid-container {
+    /* background-color: antiquewhite; */
+    padding-inline: 32px;
+    padding-block-start: 32px;
+    display: grid;
+    grid-template-columns: auto 7rem auto auto;
+    gap: 2rem;
+  }
+
+  .price-summmary-tablet > *:nth-of-type(n + 2):nth-of-type(-n + 3) {
+    text-align: center;
+  }
+
+  .item-right-elem,
+  .price-summmary-tablet > *:last-child {
+    text-align: right;
+  }
+
+  .price-summmary-tablet,
+  .item-left-elem,
+  .item-quantity-price,
+  .invoice-item-cost {
+    display: contents;
+  }
+
+  .invoice-grand-total {
+    padding: 27px 32px;
+    grid-column: 1/-1;
+  }
 }
