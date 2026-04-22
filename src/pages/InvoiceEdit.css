@@ -13,6 +13,11 @@
   flex-direction: column;
 }
 
+.flexible-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 .business-input-fields,
 .city-and-post-code,
 .invoice-payment-info {
@@ -120,7 +125,6 @@ input {
 .add-btn-icon {
   /* background-color: red; */
   display: flex;
-  stroke-width:;
   font-size: 15px;
   line-height: 15px;
 }
