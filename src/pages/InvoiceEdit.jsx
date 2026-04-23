@@ -1,255 +1,366 @@
 import { GoBackBtn } from "../components/navigation/GoBackButton";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 import { GrFormAdd } from "react-icons/gr";
 import { Button } from "../components/ui/Buttons";
+import { FormField } from "../components/ui/FormField";
+import { useInvoiceForm, seedFromInvoice } from "../hooks/useInvoiceForm";
 import { MdDelete } from "react-icons/md";
 import "./InvoiceEdit.css";
 
-export default function InvoiceEdit({ invoicesData, setInvoiceData }) {
-  const { id } = useParams();
-  const invoice = invoicesData.find((invoice) => invoice.id === id);
+export default function InvoiceEdit({
+  invoicesData,
+  setInvoicesData,
+  onClose,
+  isOverlay = false,
+  invoiceId, // passed explicitly when used as overlay
+}) {
+  // When rendered as an overlay, invoiceId comes from the parent.
+  // When rendered as a standalone route (/invoice/:id/edit), get it from params.
+  const params = useParams();
+  const id = invoiceId ?? params.id;
+  const navigate = useNavigate();
 
-  console.log(id);
+  const invoice = invoicesData.find((inv) => inv.id === id);
+
+  const PAYMENT_TERMS = [
+    "Net 1 Day",
+    "Net 7 Days",
+    "Net 14 Days",
+    "Net 30 Days",
+  ];
+
+  const [termsOpen, setTermsOpen] = useState(false);
+
+  const {
+    form,
+    setField,
+    touchField,
+    addItem,
+    removeItem,
+    validateForm,
+    fieldError,
+  } = useInvoiceForm(seedFromInvoice(invoice));
+
+  if (!invoice) return <p style={{ padding: "2rem" }}>Invoice not found.</p>;
+
+  const handleCancel = () => {
+    if (onClose) {
+      onClose(); // overlay — close the panel
+    } else {
+      navigate(`/invoice/${id}`); // standalone route — go back to details
+    }
+  };
+
+  const handleSave = () => {
+    if (!validateForm()) return;
+
+    setInvoicesData((prev) =>
+      prev.map((inv) =>
+        inv.id === id
+          ? {
+              ...inv,
+              clientName: form.clientName,
+              clientEmail: form.clientEmail,
+              billFrom: { ...form.billFrom },
+              streetAddress: form.billTo.streetAddress,
+              city: form.billTo.city,
+              postCode: form.billTo.postCode,
+              country: form.billTo.country,
+              invoiceDate: form.invoiceDate,
+              paymentTerms: form.paymentTerms,
+              projectDescription: form.projectDescription,
+              items: form.items.map((i) => ({
+                ...i,
+                qty: Number(i.qty),
+                price: Number(i.price),
+                total: Number(i.total),
+              })),
+              total: form.items.reduce((sum, i) => sum + Number(i.total), 0),
+            }
+          : inv,
+      ),
+    );
+
+    if (onClose) {
+      onClose();
+    } else {
+      navigate(`/invoice/${id}`);
+    }
+  };
+
   return (
     <div className="form-container">
-      <section className="main-wrapper edit-page">
-        <GoBackBtn id="edit-page-go-back-btn" />
+      <section
+        className={`main-wrapper edit-page ${isOverlay ? "is-overlay" : ""}`}
+      >
+        <GoBackBtn />
         <p className="header-main">
           Edit <span className="hash-sign">#</span>
           {invoice.id}
         </p>
 
+        {/* ── Bill From ──────────────────────────────────────── */}
         <article className="owner-details">
           <p className="edit-header">Bill From</p>
-
           <div className="business-input-fields">
-            <div className="detail-input-container">
-              <label htmlFor="business-street-address">Street Address</label>
-              <input
-                type="text"
-                name="business-street-address"
-                id="business-street-address"
-              />
-            </div>
-
-            <div className="flexible-row ">
+            <FormField
+              label="Street Address"
+              id="bf-street"
+              path="billFrom.streetAddress"
+              value={form.billFrom.streetAddress}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("billFrom.streetAddress")}
+            />
+            <div className="flexible-row">
               <div className="city-and-post-code">
-                <div className="detail-input-container">
-                  <label htmlFor="business-city-address">City</label>
-                  <input
-                    type="text"
-                    name="business-city-address"
-                    id="business-city-address"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="business-post-code">Post Code</label>
-                  <input
-                    type="text"
-                    name="business-post-code"
-                    id="business-post-code"
-                  />
-                </div>
-              </div>
-              <div className="detail-input-container">
-                <label htmlFor="business-country">Country</label>
-                <input
-                  type="text"
-                  name="business-country"
-                  id="business-country"
+                <FormField
+                  label="City"
+                  id="bf-city"
+                  path="billFrom.city"
+                  value={form.billFrom.city}
+                  onChange={setField}
+                  onBlur={touchField}
+                  error={fieldError("billFrom.city")}
+                />
+                <FormField
+                  label="Post Code"
+                  id="bf-postcode"
+                  path="billFrom.postCode"
+                  value={form.billFrom.postCode}
+                  onChange={setField}
+                  onBlur={touchField}
+                  error={fieldError("billFrom.postCode")}
                 />
               </div>
+              <FormField
+                label="Country"
+                id="bf-country"
+                path="billFrom.country"
+                value={form.billFrom.country}
+                onChange={setField}
+                onBlur={touchField}
+                error={fieldError("billFrom.country")}
+              />
             </div>
           </div>
         </article>
 
+        {/* ── Bill To ────────────────────────────────────────── */}
         <article className="client-details">
           <p className="edit-header">Bill To</p>
           <div className="business-input-fields">
-            <div className="detail-input-container">
-              <label htmlFor="client-name">Client's Name</label>
-              <input type="text" name="client-name" id="client-name" />
-            </div>
-
-            <div className="detail-input-container">
-              <label htmlFor="client-email">Client's Email</label>
-              <input type="text" name="client-email" id="client-email" />
-            </div>
-            <div className="detail-input-container">
-              <label htmlFor="client-street-address">Street Address</label>
-              <input
-                type="text"
-                name="client-street-address"
-                id="client-street-address"
-              />
-            </div>
+            <FormField
+              label="Client's Name"
+              id="client-name"
+              path="clientName"
+              value={form.clientName}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("clientName")}
+            />
+            <FormField
+              label="Client's Email"
+              id="client-email"
+              path="clientEmail"
+              type="email"
+              value={form.clientEmail}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("clientEmail")}
+            />
+            <FormField
+              label="Street Address"
+              id="bt-street"
+              path="billTo.streetAddress"
+              value={form.billTo.streetAddress}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("billTo.streetAddress")}
+            />
             <div className="flexible-row">
               <div className="city-and-post-code">
-                <div className="detail-input-container">
-                  <label htmlFor="client-city-address">City</label>
-                  <input
-                    type="text"
-                    name="client-city-address"
-                    id="client-city-address"
-                  />
-                </div>
-                <div className="detail-input-container">
-                  <label htmlFor="client-post-code">Post Code</label>
-                  <input
-                    type="text"
-                    name="client-post-code"
-                    id="client-post-code"
-                  />
-                </div>
+                <FormField
+                  label="City"
+                  id="bt-city"
+                  path="billTo.city"
+                  value={form.billTo.city}
+                  onChange={setField}
+                  onBlur={touchField}
+                  error={fieldError("billTo.city")}
+                />
+                <FormField
+                  label="Post Code"
+                  id="bt-postcode"
+                  path="billTo.postCode"
+                  value={form.billTo.postCode}
+                  onChange={setField}
+                  onBlur={touchField}
+                  error={fieldError("billTo.postCode")}
+                />
               </div>
-              <div className="detail-input-container">
-                <label htmlFor="client-country">Country</label>
-                <input type="text" name="client-country" id="client-country" />
-              </div>
+              <FormField
+                label="Country"
+                id="bt-country"
+                path="billTo.country"
+                value={form.billTo.country}
+                onChange={setField}
+                onBlur={touchField}
+                error={fieldError("billTo.country")}
+              />
             </div>
           </div>
         </article>
 
+        {/* ── Invoice Info ───────────────────────────────────── */}
         <article className="invoice-payment-info">
           <div className="flexible-row invoice-issuance-pay-flex">
-            <div className="detail-input-container">
-              <label htmlFor="invoice-issuance-date">Invoice Date</label>
-              <input
-                type="date"
-                name="invoice-issuance-date"
-                id="invoice-issuance-date"
-              />
-            </div>
-            {/* USE SELECT LIBRARY HERE */}
-            <div className="detail-input-container">
-              <label htmlFor="invoice-issuance-date">Payment Terms</label>
-              <input
-                type="date"
-                name="invoice-issuance-date"
-                id="invoice-issuance-date"
-              />
-            </div>
-          </div>
-          <div className="detail-input-container">
-            <label htmlFor="project-description">Payment Description</label>
-            <input
-              type="text"
-              name="project-description"
-              id="project-description"
+            <FormField
+              invoiceDate={invoice.invoiceDate}
+              label="Invoice Date"
+              id="invoice-date"
+              path="invoiceDate"
+              type="date"
+              value={form.invoiceDate}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("invoiceDate")}
+              readOnly
             />
+            <FormField
+              label="Payment Terms"
+              id="payment-terms"
+              path="paymentTerms"
+              value={form.paymentTerms}
+              onChange={setField}
+              onBlur={touchField}
+              error={fieldError("paymentTerms")}
+
+              // PAYMENT TERM
+            />
+            <div className="detail-input-container">
+              <label>Payment Terms</label>
+              <div
+                className={`custom-select${termsOpen ? " open" : ""}`}
+                onClick={() => setTermsOpen((o) => !o)}
+              >
+                <div className="custom-select-value">
+                  <span>{invoice.paymentTerms}</span>
+                  <FaChevronDown
+                    className={`select-chevron${termsOpen ? " rotated" : ""}`}
+                  />
+                </div>
+                {termsOpen && (
+                  <ul className="custom-select-dropdown">
+                    {PAYMENT_TERMS.map((term) => (
+                      <li
+                        key={term}
+                        className={`custom-select-option${(invoice.paymentTerms === term) === term ? " selected" : ""}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setField("paymentTerms", term);
+                          setTermsOpen(false);
+                        }}
+                      >
+                        {term}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
           </div>
+          <FormField
+            label="Project Description"
+            id="project-description"
+            path="projectDescription"
+            value={form.projectDescription}
+            onChange={setField}
+            onBlur={touchField}
+            error={fieldError("projectDescription")}
+          />
         </article>
 
+        {/* ── Item List ──────────────────────────────────────── */}
         <article className="edit-item-list-container">
           <p className="item-list-header">Item List</p>
           <div className="item-cards-container">
-            <article className="invoice-item-card">
-              <div className="item-card-input-fields">
-                <div className="detail-input-container">
-                  <label htmlFor="item-name">Item Name</label>
-                  <input type="text" name="item-name" id="item-name" />
-                </div>
-
-                <div className="item-flex">
-                  <div className="item-set-container">
-                    <div className="detail-input-container">
-                      <label htmlFor="item-quantity">Qty.</label>
-                      <input
+            {form.items.map((item, index) => (
+              <article key={index} className="invoice-item-card">
+                <div className="item-card-input-fields">
+                  <FormField
+                    label="Item Name"
+                    id={`item-name-${index}`}
+                    path={`items.${index}.name`}
+                    value={item.name}
+                    onChange={setField}
+                    onBlur={touchField}
+                    error={fieldError(`items[${index}].name`)}
+                  />
+                  <div className="item-flex">
+                    <div className="item-set-container">
+                      <FormField
+                        label="Qty."
+                        id={`item-qty-${index}`}
+                        path={`items.${index}.qty`}
                         type="number"
+                        inputMode="numeric"
                         min="1"
                         step="1"
-                        inputMode="numeric"
-                        name="item-quantity"
-                        id="item-quantity"
+                        value={item.qty}
+                        onChange={setField}
+                        onBlur={touchField}
+                        error={fieldError(`items[${index}].qty`)}
                       />
-                    </div>
-                    <div className="detail-input-container">
-                      <label htmlFor="item-price">Price</label>
-                      <input
+                      <FormField
+                        label="Price"
+                        id={`item-price-${index}`}
+                        path={`items.${index}.price`}
                         type="number"
-                        min="1"
-                        step="1"
                         inputMode="numeric"
-                        name="item-price"
-                        id="item-price"
+                        min="0"
+                        step="0.01"
+                        value={item.price}
+                        onChange={setField}
+                        onBlur={touchField}
+                        error={fieldError(`items[${index}].price`)}
                       />
-                    </div>
-                    <div className="detail-input-container">
-                      <label htmlFor="items-total">Total</label>
-                      <input
+                      <FormField
+                        style={{ border: "transparent" }}
+                        label="Total"
+                        id={`item-total-${index}`}
+                        path={`items.${index}.total`}
                         type="number"
-                        min="1"
-                        step="1"
-                        inputMode="numeric"
-                        name="items-total"
-                        id="items-total"
+                        value={item.total}
+                        readOnly
                       />
                     </div>
+                    <MdDelete
+                      className="delete-icon"
+                      onClick={() => removeItem(index)}
+                      style={{ cursor: "pointer" }}
+                    />
                   </div>
-
-                  <MdDelete id="delete-icon" />
                 </div>
-              </div>
-            </article>
-            <article className="invoice-item-card">
-              <div className="item-card-input-fields">
-                <div className="detail-input-container">
-                  <label htmlFor="item-name">Item Name</label>
-                  <input type="text" name="item-name" id="item-name" />
-                </div>
-
-                <div className="item-flex">
-                  <div className="item-set-container">
-                    <div className="detail-input-container">
-                      <label htmlFor="item-quantity">Qty.</label>
-                      <input
-                        type="number"
-                        min="1"
-                        step="1"
-                        inputMode="numeric"
-                        name="item-quantity"
-                        id="item-quantity"
-                      />
-                    </div>
-                    <div className="detail-input-container">
-                      <label htmlFor="item-price">Price</label>
-                      <input
-                        type="number"
-                        min="1"
-                        step="1"
-                        inputMode="numeric"
-                        name="item-price"
-                        id="item-price"
-                      />
-                    </div>
-                    <div className="detail-input-container">
-                      <label htmlFor="items-total">Total</label>
-                      <input
-                        type="number"
-                        min="1"
-                        step="1"
-                        inputMode="numeric"
-                        name="items-total"
-                        id="items-total"
-                      />
-                    </div>
-                  </div>
-
-                  <MdDelete id="delete-icon" />
-                </div>
-              </div>
-            </article>
+              </article>
+            ))}
           </div>
-          <Button id="add-new-item-btn" variant="secondary">
+
+          <Button id="add-new-item-btn" variant="secondary" onClick={addItem}>
             <GrFormAdd className="add-btn-icon" />
-            <p> Add New Item</p>
+            <p>Add New Item</p>
           </Button>
         </article>
       </section>
+
       <div className="edit-footer footer">
         <div className="edit-action-buttons">
-          <Button variant="secondary">Cancel</Button>
-          <Button>Save Changes</Button>
+          <Button variant="secondary" onClick={handleCancel}>
+            Cancel
+          </Button>
+          <Button onClick={handleSave}>Save Changes</Button>
         </div>
       </div>
     </div>

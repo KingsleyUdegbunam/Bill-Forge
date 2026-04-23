@@ -1,18 +1,19 @@
 .form-container {
-  background-color: white;
+  background-color: var(--bg-modal);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 .form-container .main-wrapper {
-  padding-block-end: 0;
+  padding-block-end: 2rem;
+  flex: 1;
 }
 
 .header-main {
   margin-block-end: 1.5rem;
-  font-size: var(--H-M-FONT-SIZE);
+  font-size: var(--fs-lg);
   font-weight: 700;
+  color: var(--txt-primary);
 }
 
 .detail-input-container {
@@ -20,16 +21,48 @@
   flex-direction: column;
 }
 
+/* ── Label row (label + inline error) ─────────────────────── */
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 0.5rem;
+}
+
+.label-row label,
+.detail-input-container > label {
+  color: var(--txt-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 15px;
+}
+
+/* When label-row is NOT used, keep original margin */
+.detail-input-container > label {
+  margin-block-end: 0.5rem;
+}
+
+.label-error {
+  color: var(--red) !important;
+}
+
+.field-error-msg {
+  font-size: var(--fs-xs);
+  color: var(--red);
+  font-weight: 500;
+}
+
 .flexible-row {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .business-input-fields,
 .city-and-post-code,
 .invoice-payment-info {
   display: flex;
-
   gap: 1.5rem;
 }
 
@@ -57,28 +90,44 @@
 }
 
 .edit-header {
-  color: var(--ACCENT-CLR);
-  font-size: var(--H-S-FONT-SIZE);
+  color: var(--purple);
+  font-size: var(--fs-sm);
   letter-spacing: -0.25px;
   font-weight: 700;
 }
 
-.detail-input-container label {
-  color: var(--SECONDARY-TXT-CLR);
-  font-size: var(--BODY-TXT-SIZE);
-  font-weight: 500;
-  letter-spacing: -0.1px;
-  line-height: 15px;
-  margin-block-end: 0.5rem;
-}
-
+/* ── Inputs ────────────────────────────────────────────────── */
 input {
-  font-size: var(--H-S-FONT-SIZE);
+  font-size: var(--fs-sm);
   font-weight: 700;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--BG-LIGHT);
-  border-radius: 0.25rem;
-  background-color: transparent;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-input);
+  background-color: var(--bg-input);
+  color: var(--txt-input);
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--border-input-focus);
+}
+
+input::placeholder {
+  color: var(--txt-placeholder);
+}
+
+.input-error {
+  border-color: var(--border-input-error) !important;
+}
+
+.input-readonly {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: transparent;
+  background-color: var(--bg-input);
 }
 
 .client-details,
@@ -86,18 +135,92 @@ input {
   margin-block-start: 2.6rem;
 }
 
+/* ── Custom Select ─────────────────────────────────────────── */
+.custom-select {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-select-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-input);
+  background-color: var(--bg-input);
+  color: var(--txt-input);
+  transition: border-color 0.15s;
+}
+
+.custom-select.open .custom-select-value {
+  border-color: var(--border-input-focus);
+}
+
+.select-chevron {
+  font-size: 0.7rem;
+  color: var(--purple);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.select-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background-color: var(--dropdown-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.custom-select-option {
+  padding: 1rem 1.25rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--dropdown-txt);
+  border-bottom: 1px solid var(--border);
+  transition: color 0.1s;
+}
+
+.custom-select-option:last-child {
+  border-bottom: none;
+}
+
+.custom-select-option:hover {
+  color: var(--purple);
+}
+
+.custom-select-option.selected {
+  color: var(--purple);
+}
+
+/* ── Item list ─────────────────────────────────────────────── */
 .edit-item-list-container {
   margin-block-start: 4rem;
 }
 
 .item-list-header {
-  color: var(--PALE-HEADER-CLR);
-  font-size: var(--H-MS-FONT-SIZE);
+  color: var(--txt-body);
+  font-size: var(--fs-md);
   font-weight: 700;
   letter-spacing: -0.38px;
   line-height: 32px;
   margin-block-end: 1.5rem;
 }
+
 .invoice-item-card {
   display: flex;
   flex-direction: column;
@@ -109,11 +232,13 @@ input {
   display: grid;
   grid-template-columns: 1fr 2rem;
   align-items: center;
+  gap: 1rem;
 }
 
 .item-set-container {
   display: grid;
   grid-template-columns: 4.5rem auto auto;
+
   gap: 1rem;
 }
 
@@ -123,6 +248,7 @@ input {
 
 #items-total {
   border-color: transparent;
+  background-color: transparent;
 }
 
 .item-cards-container {
@@ -134,31 +260,41 @@ input {
 #add-new-item-btn {
   width: 100%;
   margin-block-start: 3rem;
+  gap: 0.5rem;
 }
 
 .add-btn-icon {
-  display: flex;
-  font-size: 15px;
-  line-height: 15px;
+  font-size: var(--fs-md);
+  line-height: 1;
 }
 
-#delete-icon {
+.delete-item-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--TERTIARY-TXT-CLR);
+  color: var(--txt-body);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
 }
 
-.footer {
-  height: 155px;
+.delete-item-icon:hover {
+  color: var(--red);
+}
+
+/* ── Validation summary ────────────────────────────────────── */
+.form-error-summary {
+  margin-block-start: 2rem;
+  color: var(--red);
+  font-size: var(--fs-xs);
+  font-weight: 500;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-
-  background: linear-gradient(#00000000, rgba(0, 0, 0, 0.48));
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
+/* ── Footer ─────────────────────────────────────────────────── */
 .edit-footer {
-  position: relative;
+  width: 100%;
 }
 
 .edit-action-buttons {
@@ -166,11 +302,13 @@ input {
   justify-content: flex-end;
   padding: 21px 24px;
   gap: 0.5rem;
-  background-color: white;
+  background-color: var(--bg-card);
   width: 100%;
-  box-shadow: var(--CARD-BOX-SHADOW);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
 }
 
+/* ── Tablet / Desktop ──────────────────────────────────────── */
 @media (min-width: 768px) {
   .flexible-row {
     flex-direction: row;
@@ -179,6 +317,7 @@ input {
   .flexible-row > * {
     flex: 1;
   }
+
   .city-and-post-code {
     display: contents;
   }
@@ -198,7 +337,7 @@ input {
   .item-card-input-fields {
     display: grid;
     gap: 1rem;
-    grid-template-columns: auto 5rem auto auto auto;
+    grid-template-columns: auto 8vw auto auto auto;
     align-items: center;
   }
 
@@ -206,28 +345,38 @@ input {
     display: contents;
   }
 
-  @media (min-width: 768px) {
-    .edit-footer {
-      /* background: transparent; */
-    }
+  .form-container .main-wrapper,
+  .edit-action-buttons {
+    padding-inline: 56px;
+    /* background-color: red; */
+    padding-block-start: 3.8rem;
+  }
 
-    .form-container .main-wrapper,
-    .edit-action-buttons {
-      padding: 3.8rem 56px 2rem;
-    }
+  .edit-action-buttons {
+    padding-block-start: 2rem;
+    padding-block-end: 2rem;
+  }
 
-    .form-container {
-      padding-block-end: 10rem;
-    }
-    .edit-action-buttons {
-      padding-block-start: 2rem;
-      background-color: white;
-    }
+  /* Standalone page: footer is fixed to viewport */
+  .form-container:not(.in-overlay) {
+    padding-block-end: 10rem;
+  }
 
-    .footer {
-      position: fixed;
-      /* height: fit-content; */
-      /* background-color: yellow; */
-    }
+  .form-container:not(.in-overlay) .edit-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-container:not(.in-overlay) .edit-footer {
+    left: 90px;
+  }
+  .item-card-input-fields {
+    display: grid;
+    gap: 1rem;
+    align-items: center;
   }
 }
