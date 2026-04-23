@@ -1,9 +1,12 @@
 .status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-transform: capitalize;
-  padding: 14px 30px;
-  border-radius: 6px;
+  padding: 14px 19px;
+  border-radius: var(--radius-badge);
   font-weight: 700;
-  color: var();
+  min-width: 104px;
 }
 
 .status::before {
@@ -15,38 +18,34 @@
   height: 0.5rem;
 }
 
-.status--draft {
-  background-color: var(--STATUS-DRAFT-BG);
-  color: var(--STATUS-DRAFT-CLR);
+.status--paid {
+  background-color: var(--paid-bg);
+  color: var(--paid-clr);
+}
+.status--paid::before {
+  background-color: var(--paid-clr);
 }
 
 .status--pending {
-  background-color: var(--STATUS-PENDING-BG);
-  color: var(--STATUS-PENDING-CLR);
+  background-color: var(--pending-bg);
+  color: var(--pending-clr);
+}
+.status--pending::before {
+  background-color: var(--pending-clr);
 }
 
-.status--paid {
-  background-color: var(--STATUS-COMPLETED-BG);
-  color: var(--STATUS-COMPLETED-CLR);
+.status--draft {
+  background-color: var(--draft-bg);
+  color: var(--draft-clr);
+}
+.status--draft::before {
+  background-color: var(--draft-clr);
 }
 
 .status--overdue {
-  background-color: var(--STATUS-OVERDUE-BG);
-  color: var(--WARNING-CLR);
+  background-color: var(--overdue-bg);
+  color: var(--overdue-clr);
 }
-
-.status--draft::before {
-  background-color: var(--STATUS-DRAFT-CLR);
-}
-
-.status--pending::before {
-  background-color: var(--STATUS-PENDING-CLR);
-}
-
-.status--paid::before {
-  background-color: var(--STATUS-COMPLETED-CLR);
-}
-
 .status--overdue::before {
-  background-color: var(--WARNING-CLR);
+  background-color: var(--overdue-clr);
 }
