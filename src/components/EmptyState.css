@@ -1,0 +1,25 @@
+.empty-data {
+  /* position: fixed; */
+  inset: 0;
+  height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+.empty-data h2 {
+  font-size: var(--fs-lg);
+  color: var(--txt-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 42px;
+}
+
+.empty-data p {
+  font-size: var(--fs-xs);
+  color: var(--txt-body);
+  text-align: center;
+}
+
+.empty-data .emphasis {
+  font-weight: bold;
+}
