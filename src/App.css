@@ -169,7 +169,8 @@ body {
   }
 
   .main-content > * {
-    /* width: min(1200px, 100%); */
+    width: min(1600px, 100%);
+    padding-inline: 9rem;
     margin-inline: auto;
   }
 }
