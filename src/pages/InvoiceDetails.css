@@ -3,9 +3,9 @@ html {
 }
 
 .status-text {
-  font-size: var(--BODY-TXT-SIZE);
+  font-size: var(--fs-xs);
   line-height: 15px;
-  color: var(--DUE-NAME-CLR);
+  color: var(--txt-body);
   letter-spacing: -0.1px;
   font-weight: 500;
 }
@@ -16,9 +16,9 @@ html {
 
 .status-display-card {
   padding: 24px;
-  background-color: white;
-  border-radius: var(--CARD-BORDER-RADIUS);
-  box-shadow: var(--CARD-BOX-SHADOW);
+  background-color: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
 }
 
 .status-display-left {
@@ -32,17 +32,17 @@ html {
   display: none;
   justify-content: flex-end;
   gap: 0.5rem;
-
   flex: 1;
 }
 
 .invoice-details-display {
-  background-color: white;
+  background-color: var(--bg-card);
   margin-top: 1rem;
   padding: 1.5rem;
-  border-radius: var(--CARD-BORDER-RADIUS);
-  box-shadow: var(--CARD-BOX-SHADOW);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
 }
+
 .invoice-detail-body-container {
   padding-block: 31px 38px;
 }
@@ -62,8 +62,8 @@ html {
 .invoice-details-header,
 .address-details,
 .project-desc {
-  font-size: var(--BODY-TXT-SIZE);
-  color: var(--SECONDARY-TXT-CLR);
+  font-size: var(--fs-xs);
+  color: var(--txt-muted);
   font-weight: 500;
 }
 
@@ -75,10 +75,11 @@ html {
 
 .invoice-details-content,
 .item-name {
-  font-size: var(--H-S-FONT-SIZE);
+  font-size: var(--fs-sm);
   font-weight: 700;
   line-height: 20px;
   letter-spacing: -0.25px;
+  color: var(--txt-primary);
 }
 
 .project-desc {
@@ -102,8 +103,8 @@ html {
   flex-direction: column;
   gap: 1.5rem;
   padding-block-start: 1.5rem;
-  background-color: var(--DETAILS-COST-BG);
-  border-radius: var(--CARD-BORDER-RADIUS);
+  background-color: var(--bg-card-hover);
+  border-radius: var(--radius-card);
 }
 
 .invoice-item-cost,
@@ -115,41 +116,39 @@ html {
 }
 
 .invoice-item-cost {
-  font-size: var(--H-S-FONT-SIZE);
-  color: var(--PRIMARY-TXT-CLR);
+  font-size: var(--fs-sm);
+  color: var(--txt-primary);
   letter-spacing: -0.25px;
   font-weight: 700;
 }
 
 .invoice-item-cost .item-quantity-price {
-  color: var(--SECONDARY-TXT-CLR);
+  color: var(--txt-muted);
 }
 
 .invoice-grand-total {
-  color: white;
-  background-color: var(--STATUS-DRAFT-CLR);
+  color: var(--txt-on-dark);
+  background-color: var(--bg-total-bar);
   padding-block: 1.5rem;
-  border-radius: 0 0 var(--CARD-BORDER-RADIUS) var(--CARD-BORDER-RADIUS);
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
 }
 
 .grand-total-txt {
-  font-size: var(--BODY-TXT-SIZE);
+  font-size: var(--fs-xs);
   line-height: 18px;
   letter-spacing: -0.1px;
 }
 
 .grand-total-figure {
-  font-size: var(--H-M-FONT-SIZE);
+  font-size: var(--fs-lg);
   line-height: 32px;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
 .action-btns {
-  background-color: white;
+  background-color: var(--bg-card);
   padding: 21px 1.5rem;
-  /* display: flex;
-  justify-content: space-between; */
   display: grid;
   grid-template-columns: 0.5fr 0.6fr 1fr;
   gap: 0.5rem;
@@ -161,7 +160,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: var(--CARD-BOX-SHADOW);
+  box-shadow: var(--shadow);
 }
 
 #detais-footer {
@@ -169,10 +168,11 @@ html {
   display: block;
 }
 
+/* ── Delete Modal ─────────────────────────────────────────── */
 .delete-alert {
   position: fixed;
-  z-index: 2;
-  background-color: #0c0e1699;
+  z-index: 100;
+  background-color: var(--bg-overlay);
   display: grid;
   place-content: center;
   padding: 1.5rem;
@@ -180,17 +180,19 @@ html {
 }
 
 .delete-modal {
-  background-color: white;
+  background-color: var(--bg-modal);
   padding: 34px 32px;
-  border-radius: var(--CARD-BORDER-RADIUS);
+  border-radius: var(--radius-card);
+  width: min(480px, 100%);
+  box-shadow: var(--shadow-lg);
 }
 
 .confirm-delete-h2 {
-  font-size: var(--H-M-FONT-SIZE);
+  font-size: var(--fs-lg);
   font-weight: 700;
   line-height: 32px;
   letter-spacing: -0.5px;
-  color: var(--PRIMARY-TXT-CLR);
+  color: var(--txt-primary);
 }
 
 .action-buttons {
@@ -198,22 +200,23 @@ html {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
-  font: var(--H-S-FONT-SIZE);
 }
 
 .warning-text {
   margin-block-start: 0.5rem;
-  font-size: var(--BODY-TXT-SIZE);
-  color: var(--TERTIARY-TXT-CLR);
+  font-size: var(--fs-xs);
+  color: var(--txt-body);
 }
+
+/* ── Tablet / Desktop visibility ─────────────────────────── */
 
 .tablet {
   display: none;
 }
 
 .price-summmary-tablet {
-  color: var(--SECONDARY-TXT-CLR);
-  font-size: var(--BODY-TXT-SIZE);
+  color: var(--txt-muted);
+  font-size: var(--fs-xs);
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.1px;
@@ -236,6 +239,7 @@ html {
     justify-content: space-between;
     padding-inline: 2rem;
   }
+
   .invoice-details-action-elems {
     display: flex;
   }
@@ -283,7 +287,6 @@ html {
   }
 
   .invoice-details-grid-container {
-    /* background-color: antiquewhite; */
     padding-inline: 32px;
     padding-block-start: 32px;
     display: grid;
