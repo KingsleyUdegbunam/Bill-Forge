@@ -1,0 +1,59 @@
+.detail-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label row — label left, error right */
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 0.5rem;
+}
+
+.field-label-row label {
+  color: var(--txt-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 15px;
+}
+
+.field-error {
+  color: var(--red);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* Error state — red border on the input */
+.detail-input-container--error input {
+  border-color: var(--border-input-error);
+}
+
+/* Input base styles */
+.detail-input-container input {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-input);
+  background-color: var(--bg-input);
+  color: var(--txt-input);
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+
+.detail-input-container input:focus {
+  outline: none;
+  border-color: var(--border-input-focus);
+}
+
+.detail-input-container input::placeholder {
+  color: var(--txt-placeholder);
+  font-weight: 500;
+}
+
+.detail-input-container input:read-only {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
