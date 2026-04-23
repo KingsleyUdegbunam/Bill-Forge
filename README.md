@@ -4,9 +4,9 @@ A responsive invoice management application built with React and Vite. The app a
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Links
 
-[View Live](#) <!-- add your deployed URL -->
+[View Live](https://billsforge.netlify.app/) | [Repository](https://github.com/KingsleyUdegbunam/HNG-1b-profile-card)
 
 ---
 
@@ -56,7 +56,7 @@ src/
 ## ⚙️ Setup Instructions
 
 ```bash
-git clone https://github.com/your-username/billforge.git
+git clone https://github.com/KingsleyUdegbunam/billforge.git
 cd billforge
 npm install
 npm run dev
@@ -157,7 +157,6 @@ Overlay is used for tablet and desktop instead of full page navigation:
 
 - Added an Overdue status beyond the default states  
 - Implemented multi-select filtering for better control  
-- Used dynamic date generation for realistic invoice timelines  
 - Automatic item total calculation to prevent user error  
 - Persistent theme system using `localStorage`  
 - Reusable form logic via custom hook (`useInvoiceForm`)  
