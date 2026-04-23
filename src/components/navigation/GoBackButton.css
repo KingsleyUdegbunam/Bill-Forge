@@ -9,9 +9,10 @@
 
   font-size: var(--H-S-FONT-SIZE);
   font-weight: 700;
-  color: var(--PRIMARY-TXT-CLR);
+  color: var(--txt-primary);
+  cursor: pointer;
 }
 
 .go-back-svg {
-  color: var(--ACCENT-CLR);
+  color: var(--clr-purple-strong);
 }
