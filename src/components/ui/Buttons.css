@@ -1,47 +1,42 @@
 .button {
   padding: 1.125rem 1.5rem;
   border: none;
-  border-radius: var(--BTN-BORDER-RADIUS);
-  font-size: var(--H-S-FONT-SIZE);
+  border-radius: var(--radius-btn);
+  font-size: var(--fs-sm);
   font-weight: 700;
   letter-spacing: -0.25px;
   line-height: 15px;
-  color: white;
+  color: var(--txt-on-dark);
   cursor: pointer;
   text-decoration: none;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  cursor: pointer;
+  align-items: center;
 }
 
 .button--primary {
-  background-color: var(--ACCENT-CLR);
+  background-color: var(--purple);
 }
-
 .button--primary:hover {
-  background-color: var(--ACCENT-CLR-HOVER);
+  background-color: var(--purple-light);
 }
 
 .button--secondary {
-  background-color: var(--DETAILS-COST-BG);
-  color: var(--SECONDARY-TXT-CLR);
+  background-color: var(--btn-ghost-bg);
+  color: var(--btn-ghost-txt);
 }
-
 .button--secondary:hover {
-  background-color: var(--BG-LIGHT);
-  color: var(--SECONDARY-TXT-CLR);
+  background-color: var(--btn-ghost-hover);
 }
 
 .button--delete {
-  background-color: var(--WARNING-CLR);
+  background-color: var(--red);
 }
-
 .button--delete:hover {
-  background-color: var(--WARNING-CLR-HOVER);
+  background-color: var(--red-light);
 }
 
 .button--draft {
-  background-color: var(--STATUS-DRAFT-CLR);
-  color: var(--TERTIARY-TXT-CLR);
+  background-color: var(--draft-btn-bg);
+  color: var(--txt-body);
 }
