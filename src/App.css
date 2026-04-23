@@ -1,48 +1,257 @@
-/* Style Library */
-/* COLORS    */
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
 
+/* ============================================================
+   INVOICE APP — THEME TOKENS
+   ============================================================ */
+
 :root {
+  --purple: #7c5dfa;
+  --purple-light: #9277ff;
+
+  --red: #ec5757;
+  --red-light: #ff9797;
+
+  --paid-bg: rgba(51, 214, 160, 0.1);
+  --paid-clr: #33d69f;
+  --pending-bg: rgba(255, 145, 0, 0.1);
+  --pending-clr: #ff8f00;
+  --draft-bg: rgba(55, 59, 83, 0.1);
+  --draft-clr: #373b53;
+  --overdue-bg: rgba(236, 87, 87, 0.1);
+  --overdue-clr: #ec5757;
+
+  --draft-btn-bg: #373b53;
+
+  --radius-card: 0.5rem;
+  --radius-btn: 1.5rem;
+  --radius-badge: 0.375rem;
+  --radius-input: 0.25rem;
+
   font-family: "League Spartan", sans-serif;
-  background-color: var(--BGG-LIGHT);
-  --ACCENT-CLR: #7c5dfa;
-  --ACCENT-CLR-HOVER: #9277ff;
-  --ACCENT-BG-II: #373b53;
-  --DUE-NAME-CLR: #858bb2;
+  --fs-xl: 36px;
+  --fs-lg: 24px;
+  --fs-md: 18px;
+  --fs-sm: 15px;
+  --fs-xs: 13px;
+}
 
-  --HEADER-BORDER-CLR: #494e6e;
+/* ── Light mode ──────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  --bg-page: #f8f8fb;
+  --bg-sidebar: #373b53;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafe;
+  --bg-modal: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-input: #ffffff;
+  --bg-total-bar: #373b53;
 
-  --BG-LIGHT: #dfe3fa;
+  --txt-primary: #0c0e16;
+  --txt-body: #888eb0;
+  --txt-muted: #7e88c3;
+  --txt-input: #0c0e16;
+  --txt-placeholder: #7e88c3;
+  --txt-on-dark: #ffffff;
 
-  --PRIMARY-TXT-CLR: #0c0e16;
-  --SECONDARY-TXT-CLR: #7e88c3;
-  --TERTIARY-TXT-CLR: #888eb0;
+  --border: #dfe3fa;
+  --border-input: #dfe3fa;
+  --border-input-focus: #7c5dfa;
+  --border-input-error: #ec5757;
+  --border-header: #494e6e;
 
-  --PALE-HEADER-CLR: #777f98;
-  --BG-DARK: #1e2139;
-  --BGG-LIGHT: #f8f8fb;
-  --WARNING-CLR: #ec5757;
-  --WARNING-CLR-HOVER: #ff9797;
-  --DETAILS-COST-BG: #f9fafe;
+  --shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+  --shadow-lg: 0 10px 20px rgba(72, 84, 159, 0.25);
 
-  --H-L-FONT-SIZE: 36px;
-  --H-M-FONT-SIZE: 24px;
-  --H-MS-FONT-SIZE: 18px;
-  --H-S-FONT-SIZE: 15px;
+  --btn-ghost-bg: #f9fafe;
+  --btn-ghost-hover: #dfe3fa;
+  --btn-ghost-txt: #7e88c3;
 
-  --STATUS-DRAFT-BG: rgba(55, 59, 83, 0.0571);
-  --STATUS-PENDING-BG: rgba(255, 145, 0, 0.0571);
-  --STATUS-COMPLETED-BG: rgba(51, 214, 160, 0.0571);
-  --STATUS-OVERDUE-BG: rgba(236, 87, 87, 0.0571);
+  --dropdown-bg: #ffffff;
+  --dropdown-txt: #0c0e16;
 
-  --STATUS-DRAFT-CLR: #373b53;
-  --STATUS-PENDING-CLR: #ff8f00;
-  --STATUS-COMPLETED-CLR: #33d69f;
+  /* Header theme toggle */
+  --moon-clr: #7e88c3;
+  --theme-dot: transparent;
+  --theme-dot-border: #7e88c3;
+}
 
-  --BOX-SHADOW-CLR: #48549f1a;
-  --CARD-BOX-SHADOW: 0 10px 10px -10px var(--BOX-SHADOW-CLR);
-  --BODY-TXT-SIZE: 13px;
+/* ── Dark mode ───────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-page: #141625;
+  --bg-sidebar: #1e2139;
+  --bg-card: #1e2139;
+  --bg-card-hover: #252945;
+  --bg-modal: #1e2139;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-input: #252945;
+  --bg-total-bar: #0c0e16;
 
-  --CARD-BORDER-RADIUS: 0.5rem;
-  --BTN-BORDER-RADIUS: 1.5rem;
+  --txt-primary: #ffffff;
+  --txt-body: #dfe3fa;
+  --txt-muted: #888eb0;
+  --txt-input: #ffffff;
+  --txt-placeholder: #888eb0;
+  --txt-on-dark: #ffffff;
+
+  --border: #252945;
+  --border-input: #252945;
+  --border-input-focus: #7c5dfa;
+  --border-input-error: #ec5757;
+  --border-header: #494e6e;
+
+  --shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
+
+  --btn-ghost-bg: #252945;
+  --btn-ghost-hover: #1e2139;
+  --btn-ghost-txt: #dfe3fa;
+
+  --dropdown-bg: #252945;
+  --dropdown-txt: #ffffff;
+
+  --draft-bg: #292c44;
+  --draft-btn-bg: rgba(55, 59, 83, 0.1);
+
+  --draft-clr: #dfe3fa;
+
+  /* Header theme toggle */
+  --moon-clr: #ffffff;
+  --theme-dot: #7c5dfa;
+  --theme-dot-border: #7c5dfa;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--txt-primary);
+  margin: 0;
+}
+
+/* ── App layout ──────────────────────────────────────────── */
+.app-container {
+  /* On mobile/tablet the header is horizontal at top — no special layout needed */
+  min-height: 100vh;
+}
+
+/* The main-content div wraps the Routes output at desktop */
+.main-content {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  /* On desktop the sidebar is vertical on the left.
+     The app-container becomes a horizontal flex:
+       [sidebar 90px] | [main-content fills rest]            */
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* Header (sidebar on desktop) stays fixed width */
+  .app-container > header,
+  .app-container > nav {
+    flex-shrink: 0;
+    z-index: 100000;
+  }
+
+  /* Main content takes remaining width and centers its inner content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content > * {
+    /* width: min(1200px, 100%); */
+    margin-inline: auto;
+  }
+}
+
+/* ── Global Overlay Panel (Edit / Create — tablet+) ─────── */
+.edit-overlay-backdrop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .edit-overlay-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: var(--bg-overlay);
+  }
+
+  .edit-overlay-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 20px 0;
+    /* width: min(616px, 85vw); */
+    width: 80%;
+    background-color: var(--bg-modal);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: slideInLeft 0.3s ease;
+    z-index: 51;
+  }
+
+  /* Scrollable content fills the panel */
+  .edit-overlay-panel .form-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-block-end: 0 !important;
+  }
+
+  .edit-overlay-panel .form-container .main-wrapper {
+    flex: 1;
+  }
+
+  /* Footer always at bottom of panel */
+  .edit-overlay-panel .edit-footer {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: unset !important;
+    right: unset !important;
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  .edit-overlay-panel .go-back-btn {
+    display: none;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop: offset panel past the sidebar */
+  .edit-overlay-panel {
+    left: 90px;
+    border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  }
+
+  .edit-overlay-panel {
+    width: 50%;
+  }
 }
