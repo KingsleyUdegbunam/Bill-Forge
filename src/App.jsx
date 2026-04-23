@@ -11,7 +11,10 @@ import InvoiceCreate from "./pages/InvoiceCreate";
 import "./App.css";
 
 function App() {
-  const [invoicesData, setInvoicesData] = useState(invoices);
+  const [invoicesData, setInvoicesData] = useState(() => {
+    const stored = localStorage.getItem("invoices");
+    return stored ? JSON.parse(stored) : invoices;
+  });
   const [showCreateOverlay, setShowCreateOverlay] = useState(false);
   const [theme, setTheme] = useState(
     () => localStorage.getItem("invoice-theme") || "light",
@@ -22,6 +25,10 @@ function App() {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("invoice-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem("invoices", JSON.stringify(invoicesData));
+  }, [invoicesData]);
 
   const handleToggleTheme = () =>
     setTheme((t) => (t === "light" ? "dark" : "light"));
