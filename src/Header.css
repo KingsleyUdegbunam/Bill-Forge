@@ -2,27 +2,61 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--ACCENT-BG-II);
+  background-color: var(--bg-sidebar);
+  position: relative;
+  z-index: 10;
+}
+.logo {
+  cursor: pointer;
 }
 
 .header-right {
   display: flex;
+  align-items: center;
 }
 
-.pfp-container {
+/* ── Theme toggle button ──────────────────────────────────── */
+.theme-btn {
   padding: 1.25rem 1.5rem;
-  border-inline-start: 1px solid var(--HEADER-BORDER-CLR);
+  background: transparent;
+  border: none;
+  cursor: pointer;
   display: grid;
   place-items: center;
 }
 
-.theme-btn {
-  padding: 1.25rem 1.5rem;
-  align-self: center;
+.theme-toggle-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
-.profile-image {
-  align-self: center;
+.moon-icon {
+  font-size: 1.25rem;
+  color: var(--moon-clr);
+  transition: color 0.2s ease;
+}
+
+.theme-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--moon-clr);
+  border: 1.5px solid var(--moon-clr);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  display: block;
+}
+
+/* ── Avatar ───────────────────────────────────────────────── */
+.pfp-container {
+  padding: 1.25rem 1.5rem;
+  border-inline-start: 1px solid var(--border-header);
+  display: grid;
+  place-items: center;
 }
 
 .header-right .profile-image {
@@ -32,26 +66,54 @@
   overflow: hidden;
 }
 
+.header-right .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Desktop — vertical sidebar ──────────────────────────── */
 @media (min-width: 1024px) {
   .header {
+    width: 103px;
     height: 100vh;
     position: fixed;
     top: 0;
+    left: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 10;
+    flex-direction: column;
+    border-radius: 0 1.5rem 1.5rem 0;
+    overflow: hidden;
   }
-  .header,
+
   .header-right {
     flex-direction: column;
+    width: 100%;
+    margin-block-start: auto;
+  }
+
+  .theme-btn {
+    padding: 1.5rem 1.25rem;
+    width: 100%;
+  }
+
+  .pfp-container {
+    padding: 1.5rem 1.25rem;
+    border-inline-start: none;
+    border-block-start: 1px solid var(--border-header);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .logo {
     width: 103px;
     height: 103px;
+    display: grid;
+    place-items: center;
   }
 
-  .logo img,
-  .header-right {
+  .logo img {
     width: 100%;
   }
 }
