@@ -9,50 +9,149 @@
   align-items: center;
 }
 
-.invoives-h2 {
+.invoices-h2 {
   font-size: 24px;
-}
-
-.invoices-filter {
-  font-size: var(--H-S-FONT-SIZE);
-  color: var(--PRIMARY-TXT-CLR);
   font-weight: 700;
+  color: var(--txt-primary);
+  line-height: 1.2;
 }
 
 .invoices-subtext {
-  font-size: var(--BODY-TXT-SIZE);
-  color: var(--TERTIARY-TXT-CLR);
+  font-size: var(--fs-xs);
+  color: var(--txt-body);
+  margin-top: 0.25rem;
 }
 
+/* ── Filter ──────────────────────────────────────────────── */
+.invoices-filter {
+  position: relative;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--txt-primary);
+  font-family: inherit;
+  padding: 0;
+}
+
+.filter-chevron {
+  color: var(--purple);
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.filter-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 192px;
+  background-color: var(--dropdown-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  z-index: 20;
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--txt-primary);
+}
+
+.filter-checkbox {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-input);
+  background-color: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.filter-checkbox.checked {
+  background-color: var(--purple);
+  border-color: var(--purple);
+}
+
+.filter-status-label {
+  text-transform: capitalize;
+}
+
+/* ── New Invoice button ───────────────────────────────────── */
 .invoices-add-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   text-decoration: none;
-
-  border-radius: 1.5rem;
-
+  border-radius: var(--radius-btn);
   padding: 6px;
   padding-inline-end: 15px;
-
-  font-size: var(--H-S-FONT-SIZE);
+  font-size: var(--fs-sm);
   font-weight: 700;
   line-height: 15px;
-  color: #ffffff;
-
-  background-color: var(--ACCENT-CLR);
+  color: var(--txt-on-dark);
+  background-color: var(--purple);
   border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.invoices-add-btn:hover {
+  background-color: var(--purple-light);
+}
+
+.add-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-icon {
-  background-color: transparent;
   width: 2rem;
   height: 2rem;
-  padding: 0;
-  margin: 0;
 }
 
+/* ── Responsive span visibility ──────────────────────────── */
+.tablet-span {
+  display: none;
+}
+.mobile-span {
+  display: inline;
+}
+
+/* ── Invoice header right ────────────────────────────────── */
+.invoice-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.125rem;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
 .invoice-cards-container {
   padding-block: 2rem;
   display: flex;
@@ -69,16 +168,23 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  font-size: var(--BODY-TXT-SIZE);
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 10px -10px var(--BOX-SHADOW-CLR);
+  font-size: var(--fs-xs);
+  background-color: var(--bg-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  border: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.invoice-card:hover {
+  border-color: var(--purple);
 }
 
 .invoice-id,
 .invoice-total {
-  font-size: var(--H-S-FONT-SIZE);
+  font-size: var(--fs-sm);
   font-weight: 700;
+  color: var(--txt-primary);
 }
 
 .invoice-due-date-cost {
@@ -87,9 +193,8 @@
   gap: 0.5rem;
 }
 
-.invoice-name,
-.ivoice-due-txt {
-  color: var(--DUE-NAME-CLR);
+.invoice-name {
+  color: var(--txt-body);
 }
 
 .invoice-id-and-name {
@@ -106,23 +211,32 @@
 
 .hash-sign,
 .due-date {
-  color: var(--SECONDARY-TXT-CLR);
-}
-
-.invoice-header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.125rem;
+  color: var(--txt-muted);
 }
 
 .invoice-card-chevron {
-  color: var(--ACCENT-CLR);
+  color: var(--purple);
   display: none;
 }
 
+.empty-state {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--txt-body);
+  font-size: var(--fs-sm);
+}
+
+/* ── Delete button — red on hover (used in detail page footer) */
+.button--delete {
+  background-color: var(--red);
+}
+.button--delete:hover {
+  background-color: var(--red-light);
+}
+
+/* ── Tablet+ ─────────────────────────────────────────────── */
 @media (min-width: 768px) {
   .main-wrapper {
-    /* background-color: red; */
     padding: 3.8rem 3rem;
   }
 
@@ -132,44 +246,33 @@
 
   .invoice-card {
     display: grid;
-    grid-template-columns: 6rem 8rem 1fr 8rem 9rem auto;
+    grid-template-columns: 1fr auto 1fr auto auto auto;
+    gap: 1rem;
     align-items: center;
     padding: 1rem 1.5rem;
   }
 
-  /* reset mobile-only styles */
   .invoice-id-and-name,
   .due-date-cost-status,
   .invoice-due-date-cost {
     display: contents;
   }
 
-  .invoice-id {
-    order: 1;
-  }
-  .due-date {
-    order: 2;
-    text-align: center;
-  }
-  .invoice-name {
-    order: 3;
-    text-align: center;
-  }
-  .invoice-total {
-    order: 4;
-    text-align: center;
-  }
-  .invoice-status {
-    order: 5;
-    justify-self: center;
-  }
-
+  .invoice-id   { order: 1; }
+  .due-date     { order: 2; text-align: center; }
+  .invoice-name { order: 3; text-align: center; }
+  .invoice-total { order: 4; text-align: right; }
+  .invoice-status { order: 5; justify-self: right; }
   .invoice-card-chevron {
     order: 6;
-  }
-
-  .invoice-card-chevron {
     display: inline-block;
     font-size: 0.5rem;
   }
+
+  .tablet-span { display: inline; }
+  .mobile-span { display: none; }
+}
+
+@media (min-width: 1024px) {
+  .invoice-card { gap: 2rem; }
 }
